@@ -1,0 +1,33 @@
+# docker-compose.yml — app + vector database (Qdrant)
+# TODO: MEMORY.md checklist — "docker compose up runs the pipeline + vector DB + UI/API"
+#
+# NOTE: This is scaffolding. Do NOT `docker compose up/build` yet; the app image
+# and service logic are still stubs.
+
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: rag-pipeline-app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./app:/code/app
+      - ./data:/code/data
+    depends_on:
+      - qdrant
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: rag-pipeline-qdrant
+    ports:
+      - "6333:6333"   # REST API
+      - "6334:6334"   # gRPC API
+    volumes:
+      - qdrant_storage:/qdrant/storage
+
+volumes:
+  qdrant_storage:

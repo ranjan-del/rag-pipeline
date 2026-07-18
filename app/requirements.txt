@@ -1,0 +1,9 @@
+# Intended dependencies (text manifest only — do NOT install during scaffolding).
+# Pinning is deferred until implementation.
+
+fastapi
+uvicorn
+pypdf
+sentence-transformers
+qdrant-client
+numpy

@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# Environment
+.env
+
+# OS
+.DS_Store
+
+# Data (keep the folder, ignore ingested documents)
+data/*
+!data/.gitkeep
+
+# Editors
+.vscode/
+.idea/

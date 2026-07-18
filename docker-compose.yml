@@ -1,8 +1,13 @@
-# docker-compose.yml — app + vector database (Qdrant)
-# TODO: MEMORY.md checklist — "docker compose up runs the pipeline + vector DB + UI/API"
+# docker-compose.yml — app + optional vector database (Qdrant)
 #
-# NOTE: This is scaffolding. Do NOT `docker compose up/build` yet; the app image
-# and service logic are still stubs.
+# `docker compose up` builds and serves the FastAPI app on http://localhost:8000.
+# The app runs fully offline (in-memory store + offline LLM fallback), so the
+# qdrant service is OPTIONAL — the default code path does not connect to it. It
+# is kept here as the reference "heavier backend" for the store/vector_store.py
+# QdrantVectorStore sketch.
+#
+# NOTE: This was NOT run in the dev environment (no Docker available there); it
+# is written to be correct.
 
 services:
   app:
@@ -13,7 +18,9 @@ services:
     ports:
       - "8000:8000"
     env_file:
-      - .env
+      # Optional — the app runs with no .env at all.
+      - path: .env
+        required: false
     volumes:
       - ./app:/code/app
       - ./data:/code/data

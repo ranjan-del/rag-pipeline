@@ -6,6 +6,13 @@ __pycache__/
 .venv/
 venv/
 env/
+.pytest_cache/
+*.db
+
+# Node / frontend (if a UI is added later)
+node_modules/
+dist/
+.angular/
 
 # Environment
 .env

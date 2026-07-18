@@ -1,9 +1,18 @@
-# Intended dependencies (text manifest only — do NOT install during scaffolding).
-# Pinning is deferred until implementation.
-
+# Default (offline) dependencies — everything the pipeline and tests need to run
+# with NO external services, NO network, and NO API keys.
 fastapi
 uvicorn
 pypdf
-sentence-transformers
-qdrant-client
 numpy
+pydantic
+python-multipart
+
+# --- Optional extras (NOT required for the default path or the tests) ---
+# Install these only if you want the heavier, online backends:
+#   anthropic              -> real LLM answers via Claude (needs ANTHROPIC_API_KEY)
+#   sentence-transformers  -> real semantic embeddings (one-time model download)
+#   qdrant-client          -> Qdrant vector DB backend instead of the in-memory store
+#
+# anthropic
+# sentence-transformers
+# qdrant-client

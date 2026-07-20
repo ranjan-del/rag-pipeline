@@ -52,7 +52,7 @@ Stage-to-module mapping:
 rag-pipeline/
 ├── app/
 │   ├── __init__.py
-│   ├── main.py              # FastAPI / CLI entrypoint stub
+│   ├── main.py              # FastAPI app + CLI demo entrypoint
 │   ├── requirements.txt     # intended dependencies (text manifest)
 │   ├── Dockerfile
 │   ├── ingest/
